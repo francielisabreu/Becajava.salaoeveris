@@ -1,41 +1,34 @@
 package br.salaoeveris.app.model;
 
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
-
 import java.time.LocalDateTime;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Agendamento {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id;	
-	
-	@ManyToOne
-	@JoinColumn (name = "ClienteId")
-	private Cliente cliente;	
-	
-	@ManyToOne
-	@JoinColumn (name = "ServicoId")
-	private Servico servico;	
-	
-	
-	private LocalDateTime datahora = LocalDateTime.now();
+	private Long id;
+	private LocalDateTime dataHora;
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
+	}
+
+	public LocalDateTime getDataHora() {
+		return dataHora;
+	}
+
+	public void setDataHora(LocalDateTime dataHora) {
+		this.dataHora = dataHora;
 	}
 
 	public Cliente getCliente() {
@@ -54,15 +47,12 @@ public class Agendamento {
 		this.servico = servico;
 	}
 
-	public LocalDateTime getDatahora() {
-		return datahora;
-	}
+	@ManyToOne
+	@JoinColumn(name = "clienteId")
+	private Cliente cliente;
 
-	public void setDatahora(LocalDateTime datahora) {
-		this.datahora = datahora;
-	}
-	
-	
-
+	@ManyToOne
+	@JoinColumn(name = "servicoId")
+	private Servico servico;
 
 }

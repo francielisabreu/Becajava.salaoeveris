@@ -5,8 +5,6 @@ import org.springframework.stereotype.Repository;
 import br.salaoeveris.app.model.Cliente;
 
 @Repository
-public interface ClienteRepository  extends JpaRepository <Cliente, Long> {
-	
-	Cliente findById();	
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
 }

@@ -1,64 +1,59 @@
 package br.salaoeveris.app.model;
 
-
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
 public class Cliente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id;
-
-	private String Nome;
-
-	private String Telefone;
-
-	private String Cpf;
-
-	private String Endereço;
+	private Long id;
+	private String nome;
+	private String cpf;
+	private String endereco;
+	private String telefone;
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getNome() {
-		return Nome;
+		return nome;
 	}
 
 	public void setNome(String nome) {
-		Nome = nome;
-	}
-
-	public String getTelefone() {
-		return Telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		Telefone = telefone;
+		this.nome = nome;
 	}
 
 	public String getCpf() {
-		return Cpf;
+		return cpf;
 	}
 
 	public void setCpf(String cpf) {
-		Cpf = cpf;
+		this.cpf = cpf;
 	}
 
-	public String getEndereço() {
-		return Endereço;
+	public String getEndereco() {
+		return endereco;
 	}
 
-	public void setEndereço(String endereço) {
-		Endereço = endereço;
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 
 }

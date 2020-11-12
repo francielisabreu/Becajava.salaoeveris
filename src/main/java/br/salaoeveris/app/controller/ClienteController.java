@@ -6,35 +6,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import br.salaoeveris.app.response.ClienteResponse;
-import br.salaoeveris.app.service.ClienteService;
+
 import br.salaoeveris.app.request.ClienteRequest;
 import br.salaoeveris.app.response.BaseResponse;
-
+import br.salaoeveris.app.service.ClienteService;
 
 @RestController
-@RequestMapping("/cliente")
+@RequestMapping("/clientes")
 public class ClienteController {
 
-	final ClienteService _service;
-
 	@Autowired
-	public ClienteController(ClienteService service) {
+	private ClienteService _service;
 
-		_service = service;
-	}
+	@PostMapping()
+	public ResponseEntity incluir (@RequestBody ClienteRequest request) {
 
-	@PostMapping
-	 public ResponseEntity inserir (@RequestBody ClienteRequest request) {
-		
 		try {
-			ClienteResponse  response = _service.inserir(request);
+			BaseResponse response = _service.incluir(request);
 			return ResponseEntity.status(response.statusCode).body(response);
-	}  		catch (Exception e)  {
-			return ResponseEntity.status(500).body("Erro genérico");
-		
+		} catch (Exception e) {
+			return ResponseEntity.status(500).body("Erro inesperado");
 		}
 	}
-	
-}
 
+}

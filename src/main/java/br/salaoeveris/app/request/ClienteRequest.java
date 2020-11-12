@@ -3,9 +3,9 @@ package br.salaoeveris.app.request;
 public class ClienteRequest {
 
 	private String nome;
-	private String telefone;
-	private String Cpf;
+	private String cpf;
 	private String endereco;
+	private String telefone;
 
 	public String getNome() {
 		return nome;
@@ -15,20 +15,12 @@ public class ClienteRequest {
 		this.nome = nome;
 	}
 
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
 	public String getCpf() {
-		return Cpf;
+		return cpf;
 	}
 
 	public void setCpf(String cpf) {
-		Cpf = cpf;
+		this.cpf = cpf;
 	}
 
 	public String getEndereco() {
@@ -37,6 +29,14 @@ public class ClienteRequest {
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 
 }
