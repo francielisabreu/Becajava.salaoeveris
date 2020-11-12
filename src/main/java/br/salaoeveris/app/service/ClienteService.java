@@ -58,22 +58,20 @@ public class ClienteService {
 
 		Optional<Cliente> cliente = _repository.findById(id);
 
-		
-		
-		if(cliente == null ) {
-			
+		if (cliente.isEmpty()) {
+
 			response.statusCode = 400;
 			response.message = "cliente não foi encontrado";
 			return response;
 		}
-		
+
 		response.setNome(cliente.get().getNome());
 		response.setId(cliente.get().getId());
 		response.setEndereco(cliente.get().getEndereco());
 		response.setTelefone(cliente.get().getTelefone());
-		
-		
-		
+		response.statusCode = 200;
+		response.message = "cliente obtido!";
+
 		return response;
 
 	}
